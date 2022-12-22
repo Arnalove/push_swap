@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2022/12/21 14:53:50 by achansar         ###   ########.fr        #
+#    Updated: 2022/12/22 17:35:48 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = push_swap
 
 #PUSH_SWAP_FILES
 SRC = 	main \
-		instr1 instr2
+		instr1 instr2 \
+		display
 
 C_FILES = $(SRC:=.c)
 OBJ = $(SRC:=.o)

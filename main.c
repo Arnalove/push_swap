@@ -6,66 +6,86 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/21 16:55:31 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/22 18:15:40 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-int *convert(char *ele, t_list *lst)
+int *convert_tab(char **tab)
 {
-    int num;
-    int *rtr;
+	int i;
+	int *tabint;
 
-    num = ft_atoi(ele);
-    rtr = &num;
-    return (rtr);
+	i = 1;
+	while(tab[i])
+		i++;
+	tabint = malloc(sizeof(int *) * i - 1);
+	if (!tabint)
+		return(ft_error_msg("ERROR : Malloc failed."));
+	i = 0;
+	while(*++tab)
+	{
+		tabint[i] = ft_atoi(*tab);
+		i++;
+	}
+	return (tabint);
 }
 
-t_list *list_init(char **tab)
+t_list *list_init(int *tab, int i)
 {
-    t_list *list;
-    int i;
-    t_list ele;
+	t_list  *list;
+	t_list  *ele;
 
-    i = 1;
-    list = NULL;
-    while (tab[i])
-    {
-        convert(tab[i]);
-        // printf("%d\n", *ele.val);
-        ft_lstnew(&ele);
-        ft_lstadd_back(&list, &ele);
-        i++;
-    }
-    return (list);
-}
-
-void    ft_printlist(t_list *head)
-{
-    t_list *current;
-
-    current = head;
-    while (!current)
-    {
-        printf("value = %d\n", *current->val);
-        current = current->next;
-    }
+	list = NULL;
+	if(tab[i])
+	{
+		ele = ft_lstnew(&tab[i]);
+		list = list_init(tab, ++i);
+	}
+	else
+		return (list);
+	ft_lstadd_front(&list, ele);
+	if (!list)
+		return (ele);
+	else
+		return (list);
 }
 
 int main(int argc, char *argv[])
 {
-    t_list *list_a;
+	t_list *list_a;
+	t_list *list_b = NULL;
+	t_list  **ptr_la;
+	int *tab_a;
+	(void)argc;
 
-    (void)argc;
-    list_a = list_init(argv);
-    //ft_printlist(list_a);
-    /*
-    recuperer input
-    check si formes string => si oui placer dans tableau
-    checker si autre nombres
-    sinon envoyer tab a init() => creer premiere list linked
-    pour cela malloc chaque elem
-    */
-    return (0);
+	tab_a = convert_tab(argv);
+	list_a = list_init(tab_a, 0);
+	ptr_la = &list_a;
+	ft_printlist(*ptr_la);
+	swap(ptr_la, *ptr_la);
+	printf("\n\n");
+	ft_printlist(list_a);
+	double_swap(ptr_la, &list_b);
+	printf("\n\n");
+	ft_printlist(list_a);
+	rotate(ptr_la, *ptr_la);
+	printf("\n\n");
+	ft_printlist(list_a);
+	double_rotate(ptr_la, &list_b);
+	printf("\n\n");
+	ft_printlist(list_a);
+	rotate_rev(ptr_la, *ptr_la);//                           => HERE
+	/*
+	recuperer input
+	check si formes string => si oui placer dans tableau
+	checker si autre nombres (ft_isallnum(' '))
+	sinon envoyer tab a init() => creer premiere list linked
+	pour cela malloc chaque elem
+
+	end :
+	free lists + tabs
+	*/
+	return (0);
 }
