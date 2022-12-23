@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 19:00:39 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/22 18:14:47 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:02:59 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,41 +33,28 @@ void    double_swap(t_list **list_a, t_list **list_b)
 		swap(list_b, *list_b);
 }
 
-void    rotate(t_list **ptr, t_list *lst)
+void	push_a(t_list **list_a, t_list **list_b)
 {
-	if (*ptr && lst)
-	{
-		*ptr = lst->next;
-		lst->next = NULL;
-		ft_lstadd_back(ptr, lst);
-	}
-}
+	t_list *head;
 
-void    double_rotate(t_list **list_a, t_list **list_b)
-{
+	head = *list_b;
+	*list_b = head->next;
 	if (*list_a)
-		rotate(list_a, *list_a);
-	if (*list_b)
-		rotate(list_b, *list_b);
+		head->next = *list_a;
+	else
+		head->next = NULL;
+	*list_a = head;
 }
 
-// void	rotate_rev(t_list **ptr, t_list *lst)
-// {
-// 	int		i;
-// 	int		s;
-//     t_list	*temp;
+void	push_b(t_list **list_a, t_list **list_b)//                      => remettre pointeur a null si liste se vide
+{
+	t_list *head;
 
-// 	(void)ptr;
-// 	temp = ft_lstlast(lst);
-// 	temp->next = lst;
-// 	i = 0;
-// 	s = ft_lstsize(lst);
-// 	while (lst && i < s - 2)
-// 	{
-// 		lst = lst->next;
-// 		i++;
-// 	}
-// 	lst->next = NULL;
-// 	printf("lst = %d\n", *lst->val);
-// 	printf("temp = %d\n", *temp->val);
-// }
+	head = *list_a;
+	*list_a = head->next;
+	if (*list_b)
+		head->next = *list_b;
+	else
+		head->next = NULL;
+	*list_b = head;
+}

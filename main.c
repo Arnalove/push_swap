@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/22 18:15:40 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/23 12:01:19 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,17 @@ t_list *list_init(int *tab, int i)
 
 int main(int argc, char *argv[])
 {
-	t_list *list_a;
-	t_list *list_b = NULL;
+	t_list	*list_a;
+	t_list	*list_b = NULL;
 	t_list  **ptr_la;
-	int *tab_a;
+	t_list	**ptr_lb;
+	int		*tab_a;
 	(void)argc;
 
 	tab_a = convert_tab(argv);
 	list_a = list_init(tab_a, 0);
 	ptr_la = &list_a;
+	ptr_lb = &list_b;
 	ft_printlist(*ptr_la);
 	swap(ptr_la, *ptr_la);
 	printf("\n\n");
@@ -73,10 +75,22 @@ int main(int argc, char *argv[])
 	rotate(ptr_la, *ptr_la);
 	printf("\n\n");
 	ft_printlist(list_a);
-	double_rotate(ptr_la, &list_b);
+	double_rotate(ptr_la, &list_b);	
 	printf("\n\n");
 	ft_printlist(list_a);
-	rotate_rev(ptr_la, *ptr_la);//                           => HERE
+	rotate_rev(ptr_la, *ptr_la);
+	printf("\nAfter ROTATE_REV\n");
+	ft_printlist(list_a);
+	ft_lstlast(*ptr_la, 0);
+	double_rotate_rev(ptr_la, &list_b);
+	printf("\nAFTER DOUBLE ROTATE REV\n");
+	ft_printlist(list_a);
+	push_b(ptr_la, ptr_lb);
+	push_b(ptr_la, ptr_lb);
+	printf("\nLIST A\n");
+	ft_printlist(list_a);
+	printf("\nLIST B\n");
+	ft_printlist(list_b);
 	/*
 	recuperer input
 	check si formes string => si oui placer dans tableau
