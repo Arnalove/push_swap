@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 19:00:39 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/23 12:02:59 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/25 18:29:00 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,24 +37,30 @@ void	push_a(t_list **list_a, t_list **list_b)
 {
 	t_list *head;
 
-	head = *list_b;
-	*list_b = head->next;
-	if (*list_a)
-		head->next = *list_a;
-	else
-		head->next = NULL;
-	*list_a = head;
+	if (*list_b)
+	{
+		head = *list_b;
+		*list_b = head->next;
+		if (*list_a)
+			head->next = *list_a;
+		else
+			head->next = NULL;
+		*list_a = head;
+	}
 }
 
-void	push_b(t_list **list_a, t_list **list_b)//                      => remettre pointeur a null si liste se vide
+void	push_b(t_list **list_a, t_list **list_b)
 {
 	t_list *head;
 
-	head = *list_a;
-	*list_a = head->next;
-	if (*list_b)
-		head->next = *list_b;
-	else
-		head->next = NULL;
-	*list_b = head;
+	if (*list_a)
+	{
+		head = *list_a;
+		*list_a = head->next;
+		if (*list_b)
+			head->next = *list_b;
+		else
+			head->next = NULL;
+		*list_b = head;
+	}
 }
