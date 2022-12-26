@@ -6,11 +6,31 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:23:53 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 16:17:41 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:55:31 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
+
+static int ft_check_dupli(int *tab, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (tab[i] == tab[j])
+				return (-1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 
 static int ft_arg_checker(int argc, char **argv)
 {
@@ -95,5 +115,11 @@ t_tabint get_arg(int argc, char **argv)
 		convert_tab(argv, &tab);
 	else if (type == ARG_STR)
 		convert_tab_split_edition(argv[1], &tab);
-	return (tab);
+	if (ft_check_dupli(tab.tab, tab.size) == 0)
+		return (tab);
+	else
+	{
+		tab.tab = ft_error_msg("ERROR : Duplicate detected.");
+		return (tab);
+	}
 }

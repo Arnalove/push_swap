@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 19:00:39 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 17:03:23 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:03:37 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,6 @@ void	push_b(t_list **list_a, t_list **list_b)
 		else
 			head->next = NULL;
 		*list_b = head;
-		ft_printlist(*list_a, *list_b);
+		//ft_printlist(*list_a, *list_b);
 	}
 }
