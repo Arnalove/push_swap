@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2022/12/25 20:26:13 by achansar         ###   ########.fr        #
+#    Updated: 2022/12/26 16:53:08 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,9 @@ SRC = 	main \
 		instr1 instr2 \
 		display \
 		utils \
-		arguments
+		arguments \
+		calculus \
+		algo
 
 C_FILES = $(SRC:=.c)
 OBJ = $(SRC:=.o)
@@ -35,21 +37,21 @@ LBFT_LINK = -L $(LBFT) -l ft
 all: $(LBFT_LIB) $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(LBFT_LINK) -o $(NAME)
+	@$(CC) $(OBJ) $(LBFT_LINK) -o $(NAME)
 
 .c.o:
-	$(CC) $(FLAGS) -c $(LBFT_INC) $< -o $@ 
+	@$(CC) $(FLAGS) -c $(LBFT_INC) $< -o $@ 
 
 $(LBFT_LIB):
-	make -C $(LBFT)
+	@make -C $(LBFT)
 
 clean:
-	make -C $(LBFT) clean
-	rm -f $(OBJ)
+	@make -C $(LBFT) clean
+	@rm -f $(OBJ)
 
 fclean: clean
-	make -C $(LBFT) fclean
-	rm -f $(NAME)
+	@make -C $(LBFT) fclean
+	@rm -f $(NAME)
 
 re: fclean all
 

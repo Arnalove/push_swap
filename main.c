@@ -6,69 +6,50 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/25 20:29:19 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:30:05 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
+ /*
+ Probleme 1 : list_init_recursive fait galerer si 0.
+				Trouver moyen de contourner.
+ Probleme 2 : si - ou grands chiffres, trover comment afficher lists
+				d'une façon claire.
+ 
+ */
+
 
 int main(int argc, char *argv[])
 {
-	t_pushswap	stack;
-	int			*tab_a;
+	t_stack		stack;
+	t_tabint	tab;
 
-	tab_a = get_arg(argc, argv);
-	if (!tab_a)
+	tab = get_arg(argc, argv);
+	if (!tab.tab)
 		return (1);
 	ft_stack_init(&stack);
-	stack.list_a = list_init(tab_a, 0);
-	free(tab_a);
-	stack.ptr_la = &stack.list_a;
-	stack.ptr_lb = &stack.list_b;
+	printf("size tab = %d\n", tab.size);
+	stack.list_a = list_init(tab.tab, 0, tab.size);
+	free(tab.tab);
 
+	get_index(stack.list_a);
+	ft_printlist(stack.list_a, stack.list_b);
 
-	ft_printlist(*stack.ptr_la);
-	swap(stack.ptr_la, *stack.ptr_la);
-	printf("\n\n");
-	ft_printlist(stack.list_a);
-	double_swap(stack.ptr_la, &stack.list_b);
-	printf("\n\n");
-	ft_printlist(stack.list_a);
-	rotate(stack.ptr_la, *stack.ptr_la);
-	printf("\n\n");
-	ft_printlist(stack.list_a);
-	double_rotate(stack.ptr_la, &stack.list_b);	
-	printf("\n\n");
-	ft_printlist(stack.list_a);
-	rotate_rev(stack.ptr_la, *stack.ptr_la);
-	printf("\nAfter ROTATE_REV\n");
-	ft_printlist(stack.list_a);
-	ft_lstlast(*stack.ptr_la, 0);
-	double_rotate_rev(stack.ptr_la, &stack.list_b);
-	printf("\nAFTER DOUBLE ROTATE REV\n");
-	ft_printlist(stack.list_a);
-	push_b(stack.ptr_la, stack.ptr_lb);
-	push_b(stack.ptr_la, stack.ptr_lb);
-	printf("\nLIST A\n");
-	ft_printlist(stack.list_a);
-	printf("\nLIST B\n");
-	ft_printlist(stack.list_b);
-
-	push_a(stack.ptr_la, stack.ptr_lb);
-	push_a(stack.ptr_la, stack.ptr_lb);
-	printf("\nLIST A\n");
-	ft_printlist(stack.list_a);
-	printf("\nLIST B\n");
-	ft_printlist(stack.list_b);
-	push_a(stack.ptr_la, stack.ptr_lb);
-	/*
-
-
-
-	creer checker sur mm focntionnement que printlist
-		if ft_checker == 0 : stop prog
+	ft_radix(&stack, tab.size);
+	ft_printlist(stack.list_a, stack.list_b);
+			/*
+			Si 3 random numbers : 2 actions possible.
+			Si 5 random numbers : moins de 12 actions autorisees.
+			
+			*/
+/*
 	end :
 	free lists + tabs
 	*/
 	return (0);
 }
+
+
+// system("clear");
+// upsleep(100000);

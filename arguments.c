@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:23:53 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/25 20:25:53 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 16:17:41 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 static int ft_arg_checker(int argc, char **argv)
 {
-	//printf("argc = %d\n", argc);
-	if (argc > 1 && argv[1])//            => soucis avec chaine vide. Impossible d'avoir le else
+	if (argc > 1 && *argv[1])
 	{
 		if (argc == 2)
 		{
@@ -39,7 +38,7 @@ static int ft_arg_checker(int argc, char **argv)
 	return (0);
 }
 
-static int *convert_tab(char **tab)
+static int	convert_tab(char **tab, t_tabint *ele)
 {
 	int i;
 	int *tabint;
@@ -47,19 +46,21 @@ static int *convert_tab(char **tab)
 	i = 1;
 	while(tab[i])
 		i++;
+	ele->size = i - 1;
 	tabint = malloc(sizeof(int *) * i - 1);
 	if (!tabint)
-		return(ft_error_msg("ERROR : Malloc failed."));
+		return((int)ft_error_msg("ERROR : Malloc failed."));
 	i = 0;
 	while(*++tab)
 	{
 		tabint[i] = ft_atoi(*tab);
 		i++;
 	}
-	return (tabint);
+	ele->tab = tabint;
+	return (0);
 }
 
-static int	*convert_tab_split_edition(char *str)
+static int	convert_tab_split_edition(char *str, t_tabint *tab)
 {
 	int		i;
 	int		*tabint;
@@ -69,28 +70,30 @@ static int	*convert_tab_split_edition(char *str)
 	tabchar = ft_split(str, ' ');
 	while (tabchar[i])
 		i++;
+	tab->size = i;
 	tabint = malloc(sizeof(int *) * i);
 	if (!tabint)
-		return(ft_error_msg("ERROR : Malloc failed."));
+		return((int)ft_error_msg("ERROR : Malloc failed."));
 	i = 0;
 	while(tabchar[i])
 	{
 		tabint[i] = ft_atoi(tabchar[i]);
 		i++;
 	}
-	return (tabint);
+	tab->tab = tabint;
+	return (0);
 }
 
-int	*get_arg(int argc, char **argv)
+t_tabint get_arg(int argc, char **argv)
 {
-	int	*tab_a;
+	t_tabint tab;
 	int	type;
 
-	tab_a = NULL;
+	tab.tab = NULL;
 	type = ft_arg_checker(argc, argv);
 	if (type == ARG_TAB)
-		tab_a = convert_tab(argv);
+		convert_tab(argv, &tab);
 	else if (type == ARG_STR)
-		tab_a = convert_tab_split_edition(argv[1]);
-	return (tab_a);
+		convert_tab_split_edition(argv[1], &tab);
+	return (tab);
 }
