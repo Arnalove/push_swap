@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:46:32 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 16:52:12 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 16:41:32 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #   define PS_H
 #   include "../libft/libft.h"
 #include <stdio.h>
+#   include <limits.h>
 
 #   define ARG_STR 1
 #   define ARG_TAB 2
@@ -41,7 +42,7 @@ void	double_rotate_rev(t_list **list_a, t_list **list_b);
 
 //DISPLAY
 void    ft_printlist(t_list *head_a, t_list *head_b);
-void    *ft_error_msg(char *str);
+void    *ft_error_msg(void);
 
 //UTILS
 t_tabint    get_arg(int argc, char **argv);
@@ -50,5 +51,6 @@ t_list      *list_init(int *tab, int i, int size);
 int         ft_checker(t_list *lst_a, t_list *lst_b);
 void        get_index(t_list *head);
 int         ft_radix(t_stack *stack, int size);
+int         ft_define_size(t_stack *stack, int size);
 
 #endif

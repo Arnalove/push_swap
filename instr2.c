@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 11:33:56 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/23 11:34:08 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:29:32 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void    rotate(t_list **ptr, t_list *lst)
 		lst->next = NULL;
 		ft_lstadd_back(ptr, lst);
 	}
+	ft_printf("ra\n");
 }
 
 void    double_rotate(t_list **list_a, t_list **list_b)
@@ -38,6 +39,7 @@ void	rotate_rev(t_list **ptr, t_list *lst)
 	lst = ft_lstlast(lst, 1);
 	lst->next = NULL;
 	ft_lstadd_front(ptr, temp);
+	ft_printf("rra\n");
 }
 
 void	double_rotate_rev(t_list **list_a, t_list **list_b)

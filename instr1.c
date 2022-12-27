@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 19:00:39 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 18:03:37 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 19:29:37 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void    swap(t_list **ptr, t_list *lst)
 		lst->next->next = lst;
 		lst->next = temp;
 	}
+	ft_printf("sa\n");
 }
 
 void    double_swap(t_list **list_a, t_list **list_b)
@@ -47,6 +48,7 @@ void	push_a(t_list **list_a, t_list **list_b)
 			head->next = NULL;
 		*list_a = head;
 	}
+	ft_printf("pa\n");
 }
 
 void	push_b(t_list **list_a, t_list **list_b)
@@ -62,6 +64,6 @@ void	push_b(t_list **list_a, t_list **list_b)
 		else
 			head->next = NULL;
 		*list_b = head;
-		//ft_printlist(*list_a, *list_b);
 	}
+	ft_printf("pb\n");
 }

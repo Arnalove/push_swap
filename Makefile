@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2022/12/26 16:53:08 by achansar         ###   ########.fr        #
+#    Updated: 2022/12/27 18:16:07 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ LBFT_LINK = -L $(LBFT) -l ft
 all: $(LBFT_LIB) $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(OBJ) $(LBFT_LINK) -o $(NAME)
+	@$(CC) $(FLAGS) -fsanitize=address -g $(OBJ) $(LBFT_LINK) -o $(NAME)
 
 .c.o:
 	@$(CC) $(FLAGS) -c $(LBFT_INC) $< -o $@ 

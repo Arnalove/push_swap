@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:31 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 17:14:21 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:59:22 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	ft_checker(t_list *lst_a, t_list *lst_b)
 		{
 			if (current->next)
 			{
-				//printf("act = %d | suiv = %d\n", *current->val, *current->next->val);
 				if (*current->val > *current->next->val)
 					return (1);
 			}

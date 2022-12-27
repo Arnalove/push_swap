@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 13:11:03 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 18:09:14 by achansar         ###   ########.fr       */
+/*   Updated: 2022/12/27 10:15:51 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void    get_index(t_list *head)
             }
             compare = compare->next;
         }
-        printf("\n\n");
         current = current->next;
     }
 }
