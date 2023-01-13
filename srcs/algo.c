@@ -6,19 +6,19 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:28:02 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/27 18:57:27 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:16:31 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-int ft_radix(t_stack *stack, int size)
+int	ft_radix(t_stack *stack, int size)
 {
-	int i;
-	int loop;
+	int	i;
+	int	loop;
 
 	i = 1;
-	while(ft_checker(stack->list_a, stack->list_b) != 0)
+	while (ft_checker(stack->list_a, stack->list_b) != 0)
 	{
 		loop = size;
 		while (loop)
@@ -36,19 +36,22 @@ int ft_radix(t_stack *stack, int size)
 	return (0);
 }
 
-int ft_verylittle_algo(t_list **list, t_list *head)
+int	ft_verylittle_algo(t_list **list, t_list *head)
 {
 	if (ft_checker(*list, 0) != 0)
 	{
 		head = *list;
-		if ((*head->val > *head->next->val && *head->val < *head->next->next->val)
-			|| (*head->val > *head->next->val && *head->next->val > *head->next->next->val)
-			|| (*head->val < *head->next->val && *head->val < *head->next->next->val))
-				swap(list, head);
+		if ((*head->val > *head->next->val
+				&& *head->val < *head->next->next->val)
+			|| (*head->val > *head->next->val
+				&& *head->next->val > *head->next->next->val)
+			|| (*head->val < *head->next->val
+				&& *head->val < *head->next->next->val))
+			swap(list, head);
 		head = *list;
-		while(ft_checker(*list, 0) != 0)
+		while (ft_checker(*list, 0) != 0)
 		{
-			if(*head->val > *head->next->next->val
+			if (*head->val > *head->next->next->val
 				&& *head->next->val < *head->next->next->val)
 				rotate(list, *list);
 			else
@@ -62,7 +65,7 @@ int	ft_little_algo(t_stack *stack, t_list *head, int size)
 {
 	int	min;
 
-	while(size - 3)
+	while (size - 3)
 	{
 		min = *head->val;
 		head = stack->list_a;
@@ -79,19 +82,19 @@ int	ft_little_algo(t_stack *stack, t_list *head, int size)
 		size--;
 	}
 	ft_verylittle_algo(&stack->list_a, stack->list_a);
-	while(stack->list_b)
+	while (stack->list_b)
 		push_a(&stack->list_a, &stack->list_b);
 	return (0);
 }
 
-int ft_define_size(t_stack *stack, int size)
+int	ft_define_size(t_stack *stack, int size)
 {
 	if (size == 2 && ft_checker(stack->list_a, 0) != 0)
 		rotate(&stack->list_a, stack->list_a);
 	else if (size == 3)
 		ft_verylittle_algo(&stack->list_a, stack->list_a);
 	else if (size == 5 || size == 4)
-	    ft_little_algo(stack, stack->list_a, size);
+		ft_little_algo(stack, stack->list_a, size);
 	else
 		ft_radix(stack, size);
 	return (0);

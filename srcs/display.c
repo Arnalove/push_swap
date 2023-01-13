@@ -6,11 +6,12 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 17:30:33 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 15:31:25 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:25:34 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
+#include <stdio.h>
 
 void    ft_printlist(t_list *head_a, t_list *head_b)
 {

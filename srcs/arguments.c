@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:23:53 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/27 18:58:01 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:17:14 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ t_tabint	get_arg(int argc, char **argv)
 	type = ft_arg_checker(argc, argv);
 	if (type == ARG_TAB)
 	{
-		if(convert_tab(argv, &tab) == 0)
+		if (convert_tab(argv, &tab) == 0)
 		{
 			tab.tab = NULL;
 			return (tab);
@@ -132,13 +132,12 @@ t_tabint	get_arg(int argc, char **argv)
 	}
 	else if (type == ARG_STR)
 	{
-		if(convert_tab_split_edition(argv[1], &tab) == 0)
+		if (convert_tab_split_edition(argv[1], &tab) == 0)
 		{
 			tab.tab = NULL;
 			return (tab);
 		}
 	}
 	ft_check_dupli(&tab.tab, tab.size);
-	// int i = tab.size;
 	return (tab);
 }

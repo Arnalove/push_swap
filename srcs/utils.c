@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:31 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/26 18:59:22 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:20:27 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_stack_init(t_stack *stack)
 
 int	ft_checker(t_list *lst_a, t_list *lst_b)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = NULL;
 	if (!lst_b)
@@ -41,13 +41,13 @@ int	ft_checker(t_list *lst_a, t_list *lst_b)
 	return (0);
 }
 
-t_list *list_init(int *tab, int i, int size)
+t_list	*list_init(int *tab, int i, int size)
 {
-	t_list  *list;
-	t_list  *ele;
+	t_list	*list;
+	t_list	*ele;
 
 	list = NULL;
-	if(size != 0)
+	if (size != 0)
 	{
 		ele = ft_lstnew(&tab[i]);
 		list = list_init(tab, ++i, --size);
@@ -59,4 +59,10 @@ t_list *list_init(int *tab, int i, int size)
 		return (ele);
 	else
 		return (list);
+}
+
+void	*ft_error_msg(void)
+{
+	write(2, "Error\n", 6);
+	return (NULL);
 }
