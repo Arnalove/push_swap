@@ -6,13 +6,11 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 17:21:15 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:38:55 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
-
-// 1 4 3 2 5
 
 void	get_index(t_list *head)
 {

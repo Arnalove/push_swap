@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:28:02 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 17:21:53 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:38:08 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,16 @@ int	ft_little_algo(t_stack *stack, t_list *head, int size)
 
 int	ft_define_size(t_stack *stack, int size)
 {
-	if (size == 2 && ft_checker(stack->list_a, 0) != 0)
-		rotate(&stack->list_a, stack->list_a);
-	else if (size == 3)
-		ft_verylittle_algo(&stack->list_a, stack->list_a);
-	else if (size == 5 || size == 4)
-		ft_little_algo(stack, stack->list_a, size);
-	else
-		ft_radix(stack, size);
+	if (ft_checker(stack->list_a, 0) != 0)
+	{
+		if (size == 2)
+			rotate(&stack->list_a, stack->list_a);
+		else if (size == 3)
+			ft_verylittle_algo(&stack->list_a, stack->list_a);
+		else if (size == 5 || size == 4)
+			ft_little_algo(stack, stack->list_a, size);
+		else
+			ft_radix(stack, size);
+	}
 	return (0);
 }
