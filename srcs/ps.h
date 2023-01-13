@@ -6,13 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:46:32 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/27 16:41:32 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:23:57 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_H
 #   define PS_H
-#   include "../libft/libft.h"
+#   include "../functions/libft.h"
 #include <stdio.h>
 #   include <limits.h>
 
