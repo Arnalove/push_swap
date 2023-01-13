@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:28:02 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 16:16:31 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:21:53 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int	ft_little_algo(t_stack *stack, t_list *head, int size)
 
 	while (size - 3)
 	{
-		min = *head->val;
 		head = stack->list_a;
+		min = *head->val;
 		while (head)
 		{
 			if (min > *head->val)
