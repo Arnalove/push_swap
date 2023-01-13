@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2023/01/13 15:24:38 by achansar         ###   ########.fr        #
+#    Updated: 2023/01/13 15:34:22 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 #ARGUMENTS
 CC = gcc
 FLAGS = -Wall -Werror -Wextra 
-#SEG = -fsanitize=address -g
+SEG = -fsanitize=address -g
 
 #PUSH_SWAP FILES
 SRC_PATH = ./srcs/
@@ -39,7 +39,7 @@ LBFT_OBJ = $(addprefix $(LBFT_PATH), $(LBFT:=.o))
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LBFT_OBJ)
-	@ $(CC) $(FLAGS) $(OBJ) $(LBFT_OBJ) -o $(NAME)
+	@ $(CC) $(FLAGS) $(SEG) $(OBJ) $(LBFT_OBJ) -o $(NAME)
 
 .c.o:
 	@ $(CC) $(FLAGS) -c $< -o $@

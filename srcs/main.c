@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/27 19:41:25 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:48:57 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
  Probleme 3 : 
  Probleme 4 :
  */
+
+void *ft_error_msg(void)
+{
+	write(2, "Error\n", 6);
+	return (NULL);
+}
 
 int main(int argc, char *argv[])
 {
@@ -32,7 +38,6 @@ int main(int argc, char *argv[])
 	
 	stack.list_a = list_init(tab.tab, 0, tab.size);
 	// ft_printlist(stack.list_a, stack.list_b);
-	// printf("GOOD\n\n");
 	
 	// ft_printlist(stack.list_a, stack.list_b);
 	get_index(stack.list_a);

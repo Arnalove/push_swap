@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 11:33:56 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/27 19:29:32 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:39:21 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void    rotate(t_list **ptr, t_list *lst)
 	ft_printf("ra\n");
 }
 
-void    double_rotate(t_list **list_a, t_list **list_b)
-{
-	if (*list_a)
-		rotate(list_a, *list_a);
-	if (*list_b)
-		rotate(list_b, *list_b);
-}
+// void    double_rotate(t_list **list_a, t_list **list_b)
+// {
+// 	if (*list_a)
+// 		rotate(list_a, *list_a);
+// 	if (*list_b)
+// 		rotate(list_b, *list_b);
+// }
 
 void	rotate_rev(t_list **ptr, t_list *lst)
 {
@@ -42,10 +42,10 @@ void	rotate_rev(t_list **ptr, t_list *lst)
 	ft_printf("rra\n");
 }
 
-void	double_rotate_rev(t_list **list_a, t_list **list_b)
-{
-	if (*list_a)
-		rotate_rev(list_a, *list_a);
-	if (*list_b)
-		rotate_rev(list_b, *list_b);
-}
+// void	double_rotate_rev(t_list **list_a, t_list **list_b)
+// {
+// 	if (*list_a)
+// 		rotate_rev(list_a, *list_a);
+// 	if (*list_b)
+// 		rotate_rev(list_b, *list_b);
+// }

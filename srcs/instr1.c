@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 19:00:39 by achansar          #+#    #+#             */
-/*   Updated: 2022/12/27 19:29:37 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:39:29 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void    swap(t_list **ptr, t_list *lst)
 	ft_printf("sa\n");
 }
 
-void    double_swap(t_list **list_a, t_list **list_b)
-{
-	if (*list_a)
-		swap(list_a, *list_a);
-	if (*list_b)
-		swap(list_b, *list_b);
-}
+// void    double_swap(t_list **list_a, t_list **list_b)
+// {
+// 	if (*list_a)
+// 		swap(list_a, *list_a);
+// 	if (*list_b)
+// 		swap(list_b, *list_b);
+// }
 
 void	push_a(t_list **list_a, t_list **list_b)
 {
