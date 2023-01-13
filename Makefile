@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2023/01/13 16:33:18 by achansar         ###   ########.fr        #
+#    Updated: 2023/01/13 16:45:11 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ FLAGS = -Wall -Werror -Wextra
 SRC_PATH = ./srcs/
 SRC = 	algo \
 		arguments \
-		display \
 		instr1 \
 		instr2 \
 		main \
