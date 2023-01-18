@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:41:32 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/15 12:13:43 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:40:23 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')
 			sign = -1;
-	if (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+' || str[0] == '\0')
 		return (2147483648);
 	while (str[i] == '0')
 		i++;

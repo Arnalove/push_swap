@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:28:02 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/18 13:23:09 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:23:33 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,27 +63,19 @@ static int	ft_verylittle_algo(t_list **list, t_list *head)
 
 static int	ft_little_algo(t_stack *stack, t_list *head, int size)
 {
-	int	min;
-
-	while (size - 3)
+	while (size--)
 	{
 		head = stack->list_a;
-		min = *head->val;
-		while (head)
-		{
-			if (min > *head->val)
-				min = *head->val;
-			head = head->next;
-		}
-		head = stack->list_a;
-		while (min != *stack->list_a->val)
+		if (head->index == 0 || head->index == 1)
+			push_b(&stack->list_a, &stack->list_b);
+		else if (ft_lstsize(stack->list_b) < 2)
 			rotate(&stack->list_a, stack->list_a);
-		push_b(&stack->list_a, &stack->list_b);
-		size--;
 	}
 	ft_verylittle_algo(&stack->list_a, stack->list_a);
 	while (stack->list_b)
 		push_a(&stack->list_a, &stack->list_b);
+	if (*stack->list_a->val > *stack->list_a->next->val)
+		swap(&stack->list_a, stack->list_a);
 	return (0);
 }
 

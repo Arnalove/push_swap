@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:31 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 16:20:27 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:30:29 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,10 @@ t_list	*list_init(int *tab, int i, int size)
 		return (list);
 }
 
-void	*ft_error_msg(void)
+void	*ft_error_msg(void *tab)
 {
+	if (tab)
+		free(tab);
 	write(2, "Error\n", 6);
 	return (NULL);
 }

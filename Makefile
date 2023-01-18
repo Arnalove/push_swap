@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2023/01/15 12:16:01 by achansar         ###   ########.fr        #
+#    Updated: 2023/01/18 16:48:24 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SEG = -fsanitize=address -g
 #PUSH_SWAP FILES
 SRC_PATH = ./srcs/
 SRC =	algo \
+		display \
 		arguments \
 		instr1 \
 		instr2 \

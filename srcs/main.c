@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/15 12:17:38 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:28:05 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	get_index(t_list *head)
 	}
 }
 
+// garder un oeil sur system(leaks) juste apres args
+
 int	main(int argc, char *argv[])
 {
 	t_stack		stack;
@@ -47,6 +49,10 @@ int	main(int argc, char *argv[])
 	stack.list_a = list_init(tab.tab, 0, tab.size);
 	get_index(stack.list_a);
 	ft_define_size(&stack, tab.size);
+
+	// ft_printlist(stack.list_a, stack.list_b);
+
+	
 	ft_lstclear(&stack.list_a);
 	free(tab.tab);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:23:53 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/15 12:15:13 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/18 18:31:36 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	ft_check_dupli(int **tab, int size)
 			if (tab[0][i] == tab[0][j])
 			{
 				*tab = NULL;
-				return ((int)ft_error_msg());
+				return ((int)ft_error_msg(NULL));
 			}
 			j++;
 		}
@@ -44,20 +44,20 @@ static int	ft_arg_checker(int argc, char **argv)
 			if (ft_isdigit(argv[1]) == 0)
 				return (ARG_STR);
 			else
-				return ((int)ft_error_msg());
+				return ((int)ft_error_msg(NULL));
 		}
 		else
 		{
 			while (*++argv)
 			{
 				if (ft_isdigit(*argv) != 0)
-					return ((int)ft_error_msg());
+					return ((int)ft_error_msg(NULL));
 			}
 			return (ARG_TAB);
 		}
 	}
 	else
-		return ((int)ft_error_msg());
+		return ((int)ft_error_msg(NULL));
 	return (0);
 }
 
@@ -73,13 +73,13 @@ static int	convert_tab(char **tab, t_tabint *ele)
 	ele->size = i - 1;
 	tabint = malloc(sizeof(int *) * i);
 	if (!tabint)
-		return ((int)ft_error_msg());
+		return ((int)ft_error_msg(NULL));
 	i = 0;
 	while (*++tab)
 	{
 		temp = ft_atoi(*tab);
 		if (temp > INT_MAX || temp < INT_MIN)
-			return ((int)ft_error_msg());
+			return ((int)ft_error_msg(tabint));
 		tabint[i] = temp;
 		i++;
 	}
@@ -101,13 +101,13 @@ static int	convert_tab_split_edition(char *str, t_tabint *tab)
 	tab->size = i;
 	tabint = malloc(sizeof(int *) * i);
 	if (!tabint)
-		return ((int)ft_error_msg());
+		return ((int)ft_error_msg(NULL));
 	i = 0;
 	while (tabchar[i])
 	{
 		temp = ft_atoi(tabchar[i]);
 		if (temp > INT_MAX || temp < INT_MIN)
-			return ((int)ft_error_msg());
+			return ((int)ft_error_msg(tabint));
 		tabint[i] = temp;
 		i++;
 	}
