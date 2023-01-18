@@ -6,7 +6,7 @@
 #    By: achansar <achansar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/19 19:37:05 by achansar          #+#    #+#              #
-#    Updated: 2023/01/13 17:33:03 by achansar         ###   ########.fr        #
+#    Updated: 2023/01/15 12:16:01 by achansar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,11 @@ NAME = push_swap
 #ARGUMENTS
 CC = gcc
 FLAGS = -Wall -Werror -Wextra 
-#SEG = -fsanitize=address -g
+SEG = -fsanitize=address -g
 
 #PUSH_SWAP FILES
 SRC_PATH = ./srcs/
-SRC = 	algo \
+SRC =	algo \
 		arguments \
 		instr1 \
 		instr2 \

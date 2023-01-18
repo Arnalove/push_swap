@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:44:39 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 14:44:42 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:41:38 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	word_count(const char *s, char c)
 	return (count);
 }
 
-static char	**ft_free_split(char **tab, int w)
+char	**ft_free_split(char **tab, int w)
 {
 	while (w > 0)
 	{

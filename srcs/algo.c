@@ -6,13 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:28:02 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 17:38:08 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/18 13:23:09 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-int	ft_radix(t_stack *stack, int size)
+static int	ft_radix(t_stack *stack, int size)
 {
 	int	i;
 	int	loop;
@@ -36,7 +36,7 @@ int	ft_radix(t_stack *stack, int size)
 	return (0);
 }
 
-int	ft_verylittle_algo(t_list **list, t_list *head)
+static int	ft_verylittle_algo(t_list **list, t_list *head)
 {
 	if (ft_checker(*list, 0) != 0)
 	{
@@ -61,7 +61,7 @@ int	ft_verylittle_algo(t_list **list, t_list *head)
 	return (0);
 }
 
-int	ft_little_algo(t_stack *stack, t_list *head, int size)
+static int	ft_little_algo(t_stack *stack, t_list *head, int size)
 {
 	int	min;
 

@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:23:53 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 16:17:14 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:15:13 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int	convert_tab(char **tab, t_tabint *ele)
 	while (tab[i])
 		i++;
 	ele->size = i - 1;
-	tabint = malloc(sizeof(int *) * i - 1);
+	tabint = malloc(sizeof(int *) * i);
 	if (!tabint)
 		return ((int)ft_error_msg());
 	i = 0;
@@ -111,6 +111,7 @@ static int	convert_tab_split_edition(char *str, t_tabint *tab)
 		tabint[i] = temp;
 		i++;
 	}
+	ft_free_split(tabchar, tab->size);
 	tab->tab = tabint;
 	return (1);
 }

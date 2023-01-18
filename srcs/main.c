@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 17:38:55 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:17:38 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ void	get_index(t_list *head)
 		while (compare)
 		{
 			if (*current->val > *compare->val)
-			{
 				current->index += 1;
-			}
 			compare = compare->next;
 		}
 		current = current->next;

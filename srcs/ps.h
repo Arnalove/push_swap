@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:46:32 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/13 17:22:09 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:15:46 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void		rotate(t_list **ptr, t_list *lst);
 void		rotate_rev(t_list **ptr, t_list *lst);
 
 //DISPLAY
-void		ft_printlist(t_list *head_a, t_list *head_b);
 void		*ft_error_msg(void);
 
 //UTILS
