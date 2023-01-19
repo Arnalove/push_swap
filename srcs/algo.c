@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 15:28:02 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/18 18:23:33 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:06:37 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_define_size(t_stack *stack, int size)
 			rotate(&stack->list_a, stack->list_a);
 		else if (size == 3)
 			ft_verylittle_algo(&stack->list_a, stack->list_a);
-		else if (size == 5 || size == 4)
+		else if (size == 5)
 			ft_little_algo(stack, stack->list_a, size);
 		else
 			ft_radix(stack, size);
