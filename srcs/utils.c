@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:31 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/23 15:16:02 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:27:57 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	ft_stack_init(t_stack *stack)
 {
 	stack->list_a = NULL;
 	stack->list_b = NULL;
+}
+
+void	*ft_error_msg(void)
+{
+	write(2, "Error\n", 6);
+	return (NULL);
 }
 
 int	ft_checker(t_list *lst_a, t_list *lst_b)
@@ -59,12 +65,6 @@ t_list	*list_init(int *tab, int i, int size)
 		return (ele);
 	else
 		return (list);
-}
-
-void	*ft_error_msg(void)
-{
-	write(2, "Error\n", 6);
-	return (NULL);
 }
 
 int	convert_from_split(char **tabchar, t_tabint *tab)
