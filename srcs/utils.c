@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 19:36:31 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/18 18:30:29 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:16:02 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,29 @@ t_list	*list_init(int *tab, int i, int size)
 		return (list);
 }
 
-void	*ft_error_msg(void *tab)
+void	*ft_error_msg(void)
 {
-	if (tab)
-		free(tab);
 	write(2, "Error\n", 6);
 	return (NULL);
+}
+
+int	convert_from_split(char **tabchar, t_tabint *tab)
+{
+	long	temp;
+	int		i;
+
+	i = 0;
+	while (tabchar[i])
+	{
+		temp = ft_atoi(tabchar[i]);
+		if (temp > INT_MAX || temp < INT_MIN)
+		{
+			ft_free_split(tabchar, tab->size);
+			free(tab->tab);
+			return ((int)ft_error_msg());
+		}
+		tab->tab[i] = temp;
+		i++;
+	}
+	return (1);
 }

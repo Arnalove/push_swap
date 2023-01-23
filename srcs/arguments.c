@@ -6,13 +6,13 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 20:23:53 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/18 18:31:36 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:15:53 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps.h"
 
-static int	ft_check_dupli(int **tab, int size)
+static int	ft_check_dupli(int *tab, int size)
 {
 	int	i;
 	int	j;
@@ -23,10 +23,10 @@ static int	ft_check_dupli(int **tab, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (tab[0][i] == tab[0][j])
+			if (tab[i] == tab[j])
 			{
-				*tab = NULL;
-				return ((int)ft_error_msg(NULL));
+				free(tab);
+				return ((int)ft_error_msg());
 			}
 			j++;
 		}
@@ -44,20 +44,20 @@ static int	ft_arg_checker(int argc, char **argv)
 			if (ft_isdigit(argv[1]) == 0)
 				return (ARG_STR);
 			else
-				return ((int)ft_error_msg(NULL));
+				return ((int)ft_error_msg());
 		}
 		else
 		{
 			while (*++argv)
 			{
 				if (ft_isdigit(*argv) != 0)
-					return ((int)ft_error_msg(NULL));
+					return ((int)ft_error_msg());
 			}
 			return (ARG_TAB);
 		}
 	}
 	else
-		return ((int)ft_error_msg(NULL));
+		return ((int)ft_error_msg());
 	return (0);
 }
 
@@ -73,13 +73,16 @@ static int	convert_tab(char **tab, t_tabint *ele)
 	ele->size = i - 1;
 	tabint = malloc(sizeof(int *) * i);
 	if (!tabint)
-		return ((int)ft_error_msg(NULL));
+		return ((int)ft_error_msg());
 	i = 0;
 	while (*++tab)
 	{
 		temp = ft_atoi(*tab);
 		if (temp > INT_MAX || temp < INT_MIN)
-			return ((int)ft_error_msg(tabint));
+		{
+			free(tabint);
+			return ((int)ft_error_msg());
+		}
 		tabint[i] = temp;
 		i++;
 	}
@@ -90,30 +93,26 @@ static int	convert_tab(char **tab, t_tabint *ele)
 static int	convert_tab_split_edition(char *str, t_tabint *tab)
 {
 	int		i;
-	int		*tabint;
 	char	**tabchar;
-	long	temp;
 
 	i = 0;
 	tabchar = ft_split(str, ' ');
+	if (!tabchar)
+		return (1);
 	while (tabchar[i])
 		i++;
 	tab->size = i;
-	tabint = malloc(sizeof(int *) * i);
-	if (!tabint)
-		return ((int)ft_error_msg(NULL));
-	i = 0;
-	while (tabchar[i])
+	tab->tab = malloc(sizeof(int *) * i);
+	if (!tab->tab)
 	{
-		temp = ft_atoi(tabchar[i]);
-		if (temp > INT_MAX || temp < INT_MIN)
-			return ((int)ft_error_msg(tabint));
-		tabint[i] = temp;
-		i++;
+		ft_free_split(tabchar, tab->size);
+		ft_error_msg();
+		return (1);
 	}
+	if (convert_from_split(tabchar, tab) == 0)
+		return (1);
 	ft_free_split(tabchar, tab->size);
-	tab->tab = tabint;
-	return (1);
+	return (0);
 }
 
 t_tabint	get_arg(int argc, char **argv)
@@ -133,12 +132,13 @@ t_tabint	get_arg(int argc, char **argv)
 	}
 	else if (type == ARG_STR)
 	{
-		if (convert_tab_split_edition(argv[1], &tab) == 0)
+		if (convert_tab_split_edition(argv[1], &tab))
 		{
 			tab.tab = NULL;
 			return (tab);
 		}
 	}
-	ft_check_dupli(&tab.tab, tab.size);
+	if (ft_check_dupli(tab.tab, tab.size) == 0)
+		tab.tab = NULL;
 	return (tab);
 }

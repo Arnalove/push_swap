@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 14:46:32 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/19 11:17:44 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/23 12:06:11 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void		rotate(t_list **ptr, t_list *lst);
 void		rotate_rev(t_list **ptr, t_list *lst);
 
 //DISPLAY
-void		*ft_error_msg(void *tab);
+void		*ft_error_msg(void);
 
 //UTILS
 t_tabint	get_arg(int argc, char **argv);
@@ -44,5 +44,6 @@ void		ft_stack_init(t_stack *stack);
 t_list		*list_init(int *tab, int i, int size);
 int			ft_checker(t_list *lst_a, t_list *lst_b);
 int			ft_define_size(t_stack *stack, int size);
+int			convert_from_split(char **tabchar, t_tabint *tab);
 
 #endif

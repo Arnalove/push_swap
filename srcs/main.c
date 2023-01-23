@@ -6,7 +6,7 @@
 /*   By: achansar <achansar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 18:58:24 by achansar          #+#    #+#             */
-/*   Updated: 2023/01/19 11:30:42 by achansar         ###   ########.fr       */
+/*   Updated: 2023/01/23 15:24:10 by achansar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ int	main(int argc, char *argv[])
 		return (0);
 	tab = get_arg(argc, argv);
 	if (!tab.tab)
+	{
 		return (0);
+	}
 	ft_stack_init(&stack);
 	stack.list_a = list_init(tab.tab, 0, tab.size);
 	get_index(stack.list_a);
